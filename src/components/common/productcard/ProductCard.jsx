@@ -1,26 +1,25 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
+import { Card, Button } from "react-bootstrap";
 import "../productcard/ProductCard.css";
+import { Link } from "react-router-dom";
 
-const ProductCard = (props) => {
-  const { title, description, price, imageUrl } = props;
-
+const ProductCard = ({ title, description, price, img, id }) => {
   return (
-    <Card className="product-card" style={{ width: "18rem" }}>
-      <Card.Img
-        variant="top"
-        src={imageUrl}
-        alt="Imagen"
-        className="product-image"
-      />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
-        <Card.Text>
-          <strong>Precio:</strong> {price}
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <div className="card-container">
+      <Card className="card">
+        <Card.Img variant="top" src={img} />
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>{description}</Card.Text>
+          <Card.Text>Precio: {price}</Card.Text>
+          <Link to={`/ItemDetail/${id}`}>
+            <Button className="buttonCard" variant="primary">
+              ver detalle
+            </Button>
+          </Link>
+        </Card.Body>
+      </Card>
+    </div>
   );
 };
 

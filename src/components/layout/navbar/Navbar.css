@@ -1,5 +1,4 @@
 .logo {
-  background-image: url("/public/logo.png");
   background-color: #000000;
   background-size: contain;
   background-repeat: no-repeat;
@@ -8,45 +7,24 @@
   width: auto;
   height: 100px;
 }
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #000000;
-}
-
-.navbar ul {
+.classContainerNavbar {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  gap: 80px;
-}
-
-.navbar a {
+  align-items: center;
+  background-color: #000000;
+  color: red;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 20px;
+}
+.categories {
   text-decoration: none;
-  color: red;
-}
-.cart-container {
-  position: relative;
-  display: inline-block;
-}
-
-.cart-counter {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  margin-right: 20px;
+  color: red;
 }

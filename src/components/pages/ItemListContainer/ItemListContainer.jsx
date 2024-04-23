@@ -1,42 +1,31 @@
-import ProductCard from "../../common/productcard/ProductCard";
-import "../ItemListContainer/ItemListContainer.css";
+import React, { useState } from "react";
+import { products } from "../../../ProdutcsMock";
+import { useEffect } from "react";
+import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
-  return (
-    <div>
-      <div className="cards">
-        <ProductCard
-          title={"metanol"}
-          description={"combustible"}
-          price={15000}
-          imageUrl={"/public/metanol.jpg"}
-        />
-        <ProductCard
-          title={"remera"}
-          description={"indumentaria"}
-          price={9000}
-          imageUrl={"/public/remera.jpg"}
-        />
-        <ProductCard
-          title={"llaveros"}
-          description={"accesorios"}
-          price={8000}
-          imageUrl={"/public/llaveros.jpg"}
-        />
-        <ProductCard
-          title={"Buzo"}
-          description={"indumentaria"}
-          price={12000}
-          imageUrl={"/public/buzoprovisorio.jpg"}
-        />
-        <ProductCard
-          title={"Calcos"}
-          description={"accesorios"}
-          price={2000}
-          imageUrl={"/public/calcos.jpg"}
-        />
-      </div>
-    </div>
-  );
+  const { name } = useParams();
+
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState([null]);
+  useEffect(() => {
+    let productsFiltered = products.filter(
+      (product) => product.category === name
+    );
+
+    const getProducts = new Promise((resolve, reject) => {
+      let x = true;
+      if (x) {
+        resolve(name ? productsFiltered : products);
+      } else {
+        reject({ status: 400, message: "algo salio mal" });
+      }
+    });
+
+    getProducts.then((res) => setItems(res)).catch((error) => setError(error));
+  }, [name]);
+
+  return <ItemList items={items} error={error} />;
 };
 export default ItemListContainer;
