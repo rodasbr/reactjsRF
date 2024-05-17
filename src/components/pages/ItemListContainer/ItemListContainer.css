@@ -6,5 +6,34 @@
   background-color: black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; 
 }
+.product-card .card-img-top {
+  width: 100%;
+  height: auto;
+}
+.product-card {
+  flex: 0 0 300px; /* Establece un ancho fijo para cada tarjeta */
+  height: 300px; 
+  border-color: red 2px;
+}
+.welcomeRf {
+  margin-bottom: 0%;
+  color: red;
+  background-color: black;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+/* .item-list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  flex: 1 1 300px; /* Cada tarjeta ocupará el mismo espacio //

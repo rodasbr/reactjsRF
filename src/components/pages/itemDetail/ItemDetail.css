@@ -1,5 +1,60 @@
-.itemDetail {
-  color: red;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body {
   background-color: black;
-  font-size: 30px;
+}
+
+.custom-card {
+  border: none;
+  max-width: 100%; 
+  width: 800px; 
+  margin: 0 auto; 
+  display: flex;
+}
+
+.image-container {
+  width: 50%; 
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.custom-card .card-body {
+  width: 50%; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-around; /
+}
+
+.custom-card .card-body .card-title {
+  font-size: 2rem;
+  color: red;
+  margin-bottom: 15px;
+}
+
+.custom-card .card-body .card-text {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.btnDetail {
+  margin-top: 15px;
+  color: white;
+  background-image: linear-gradient(to right, black, red);
+  padding: 5px;
+}
+
+/* Ajustamos el selector para que coincida con la clase en el JSX */
+.custom-counter {
+  color: white;
+  border-color: red;
 }

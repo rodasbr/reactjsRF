@@ -7,24 +7,29 @@
   width: auto;
   height: 100px;
 }
+
 .classContainerNavbar {
-  list-style-type: none;
+  background-color: black;
+  padding: 10px;
   display: flex;
   align-items: center;
-  background-color: #000000;
-  color: red;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 20px;
+  justify-content: space-between;
 }
-.categories {
-  text-decoration: none;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+
+.classContainerNavbar .categories {
+  list-style: none;
   display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
-a {
-  text-decoration: none;
-  margin-right: 20px;
+
+.classContainerNavbar .categories a {
   color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.classContainerNavbar .categories a:hover {
+  color: #ff6666;
 }

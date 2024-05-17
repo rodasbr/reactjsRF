@@ -1,5 +1,6 @@
 import ProductCard from "../../common/productcard/ProductCard";
 import "./ItemListContainer.css";
+import "./ItemListContainer.css";
 
 const ItemList = ({ items, error }) => {
   console.log(items);

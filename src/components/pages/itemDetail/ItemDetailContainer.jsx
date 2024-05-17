@@ -1,8 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { products } from "../../../ProdutcsMock";
+//import { products } from "../../../ProdutcsMock";
 import "./ItemDetail.css";
+import { CartContext } from "../../../context/CartContext";
+import Swal from "sweetalert2";
+import { db } from "../../../FireBaseConfig";
+
+import { collection, getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -10,19 +15,40 @@ const ItemDetailContainer = () => {
 
   const [item, setItem] = useState({});
 
+  const { addToCart, getQuantityById } = useContext(CartContext);
+
+  let initial = getQuantityById(+id);
+
   useEffect(() => {
-    let itemFound = products.find((product) => product.id === +id);
-    const getProduct = new Promise((resolve, reject) => {
-      if (itemFound === undefined) {
-        reject("producto no encontrado");
-      } else resolve(itemFound);
+    let productsCollection = collection(db, "products");
+    let refDoc = doc(productsCollection, id);
+    getDoc(refDoc).then((res) => {
+      setItem({ id: res.id, ...res.data() });
     });
-    getProduct.then((res) => setItem(res));
+
+    // let itemFound = products.find((product) => product.id === +id);
+    // const getProduct = new Promise((resolve, reject) => {
+    //   if (itemFound === undefined) {
+    //     reject("producto no encontrado");
+    //   } else resolve(itemFound);
+    // });
+    // getProduct.then((res) => setItem(res));
   }, [id]);
 
-  console.log(item);
+  const onAdd = (cantidad) => {
+    let product = { ...item, quantity: cantidad };
+    //console.log(fullObject);
+    addToCart(product);
 
-  return <ItemDetail item={item} />;
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+  return <ItemDetail item={item} onAdd={onAdd} initial={initial} />;
 };
 
 export default ItemDetailContainer;

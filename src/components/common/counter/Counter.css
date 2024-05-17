@@ -1,0 +1,9 @@
+.btnSuma,
+.btnResta {
+  color: white;
+  border-color: red;
+  margin: 10px;
+  border-radius: 1px;
+  color: white;
+  background-image: linear-gradient(to right, black, red);
+}
