@@ -1,12 +1,15 @@
 * {
   margin: 0%;
   padding: 0%;
+
 }
+
 .item-list-container {
   background-color: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; 
+  color: white;
 }
 .product-card .card-img-top {
   width: 100%;

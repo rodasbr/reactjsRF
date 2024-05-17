@@ -1,24 +1,89 @@
-
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 
+}
+.custom-card .card {
+  background-color: black;
+}
+.custom-card {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  max-width: 1200px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: black !important;
+  color: white;
+  border: none !important;
 }
 
+.item-detail-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.image-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+}
+
+.info-container {
+  flex: 2;
+  padding-left: 20px;
+}
+
+.custom-counter {
+  margin-top: 20px;
+}
+
+.custom-card .card-title {
+  color: red !important;
+}
+
+.custom-card .card-body {
+  background-color: black !important;
+  color: white !important;
+}
+
+.custom-card .card-text {
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .item-detail-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-container {
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+
+/*/*
 body {
   background-color: black;
 }
 
 .custom-card {
   border: none;
-  max-width: 100%; 
-  width: 800px; 
-  margin: 0 auto; 
+  max-width: 100%;
+  width: 800px;
+  margin: 0 auto;
   display: flex;
+  background-color: black;
 }
 
 .image-container {
-  width: 50%; 
+  width: 50%;
 }
 
 .item-image {
@@ -26,24 +91,29 @@ body {
   height: auto;
   display: block;
   object-fit: cover;
+  background-color: black;
 }
 
 .custom-card .card-body {
-  width: 50%; 
+  width: 50%;
   display: flex;
-  flex-direction: column; 
-  justify-content: space-around; /
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: black;
 }
 
 .custom-card .card-body .card-title {
   font-size: 2rem;
   color: red;
   margin-bottom: 15px;
+  background-color: black;
 }
 
 .custom-card .card-body .card-text {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  background-color: black;
+  color: white;
 }
 
 .btnDetail {
@@ -53,8 +123,7 @@ body {
   padding: 5px;
 }
 
-/* Ajustamos el selector para que coincida con la clase en el JSX */
 .custom-counter {
   color: white;
   border-color: red;
-}
+} */
